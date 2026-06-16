@@ -203,7 +203,7 @@ export default function PlayPage() {
           {!isPlaying && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <p className="font-[family-name:var(--font-mono)] text-xs text-bone/30 animate-pulse">
-                Move cursor here to begin
+                Hover to begin
               </p>
             </div>
           )}

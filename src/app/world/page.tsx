@@ -4,13 +4,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'World',
-  description: 'The world of MOTHTONGUE — a nocturnal natural-history museum that came alive.',
+  description: 'The world of MOTHTONGUE, a nocturnal natural-history museum that came alive.',
 };
 
 const timeline = [
   { era: 'I', title: 'The First Light', text: 'In the age before naming, the moths learned to speak through glow. They gathered in the deepest forests, where sunlight never reached, and built a language from pulse and flicker. Each species developed its own dialect: the Luna Tongue spoke in steady green, the Ember Weaver in amber threads, the Dust Mother in rust-colored whispers.' },
-  { era: 'II', title: 'The Museum', text: 'Someone built a museum to house the night. Not to display it — to listen to it. The cases were made of glass thin enough to transmit light-pulse. The walls were stone, chosen for its acoustic resonance. The doors faced east, so that sunset would be the last light to leave. Inside, the specimens were pinned not to preserve them, but to give them a place to speak from.' },
-  { era: 'III', title: 'The Translator', text: 'The museum needed a translator. Not someone who understood the language of moths — someone who was willing to learn it. The old texts say the translator must sit in complete darkness for seven nights. On the eighth night, if they have listened carefully enough, the moths will land on their tongue and teach them the first word.' },
+  { era: 'II', title: 'The Museum', text: 'Someone built a museum to house the night. Not to display it, but to listen to it. The cases were made of glass thin enough to transmit light-pulse. The walls were stone, chosen for its acoustic resonance. The doors faced east, so that sunset would be the last light to leave. Inside, the specimens were pinned not to preserve them, but to give them a place to speak from.' },
+  { era: 'III', title: 'The Translator', text: 'The museum needed a translator. Not someone who understood the language of moths, but someone who was willing to learn it. The old texts say the translator must sit in complete darkness for seven nights. On the eighth night, if they have listened carefully enough, the moths will land on their tongue and teach them the first word.' },
   { era: 'IV', title: 'The Dark Folk Tale', text: 'Every forest has a tale it tells in the dark. Ours is about a moth who swallowed a lantern and became the first light in the world. It was not a kind light. It was a hungry light, a light that wanted to be seen more than it wanted to see. The other creatures learned to speak its language so they could ask it to be gentle. Some nights, it listens.' },
   { era: 'V', title: 'Now', text: 'The museum still stands. The moths still glow. The tale is still being told, to anyone who enters the forest after dark and has the patience to listen. You are the latest translator. The display cases are waiting. The specimens are glowing. The first lesson begins when you stop trying to understand and start trying to hear.' },
 ];
@@ -60,7 +60,7 @@ export default function WorldPage() {
             &ldquo;The museum does not explain its exhibits. It lets you look, touch, and eventually understand.&rdquo;
           </blockquote>
           <p className="font-[family-name:var(--font-mono)] text-[10px] text-bone/20 mt-6 tracking-widest">
-            — FROM THE CURATOR&apos;S JOURNAL, ENTRY 042
+            FROM THE CURATOR&apos;S JOURNAL, ENTRY 042
           </p>
         </div>
       </div>

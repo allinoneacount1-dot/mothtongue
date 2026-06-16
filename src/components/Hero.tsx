@@ -15,7 +15,7 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center pt-24 pb-16">
         {/* Left - Text */}
         <div>
-          <SectionLabel label="Field Entry No. 001 — Nocturnal" className="mb-6" />
+          <SectionLabel label="Field Entry 001, Nocturnal" className="mb-6" />
 
           <RevealText>
             <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight mb-8">
@@ -29,8 +29,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            A nocturnal natural-history museum that came alive. You are the translator.
-            The moths are waiting.
+            A nocturnal museum that came alive. You are the translator.
           </motion.p>
 
           <motion.div

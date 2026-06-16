@@ -19,7 +19,7 @@ Every screen in MOTHTONGUE is a display case. The glass is slightly warped. The 
 
 We built the visual language from three sources: Victorian entomology plates, the woodcut illustrations in 17th-century herbal texts, and the actual behavior of bioluminescent organisms. The glow is never uniform. It pulses. It fades at the edges. It responds to proximity, as if the creatures are aware they are being observed.
 
-The typography was the easiest decision. Fraunces has that quality of something carved rather than drawn. The serifs are slightly uneven, like a woodcut where the knife slipped once or twice. Space Grotesk for the interface because it recedes. IBM Plex Mono for the system labels because every archive needs its cataloguing language.
+The typography was the easiest decision. Playfair Display has that quality of something carved rather than drawn. The serifs are slightly uneven, like a woodcut where the knife slipped once or twice. Space Grotesk for the interface because it recedes. IBM Plex Mono for the system labels because every archive needs its cataloguing language.
 
 What took longest was the darkness. Not the color black, but the weight of it. The sense that behind every illuminated thing, there is a vastness that the light barely touches. We achieved it through layers: the grain overlay, the vignette, the radial gradients that suggest depth without defining it. The darkness is the canvas. The light is the exception.`,
     tags: ['design', 'worldbuilding'],
@@ -29,7 +29,7 @@ What took longest was the darkness. Not the color black, but the weight of it. T
     title: 'The Language of Moths',
     date: '2026-06-05',
     excerpt: 'We gave bioluminescence a grammar. Here is how it works.',
-    content: `In the world of MOTHTONGUE, bioluminescence is not just light. It is language. Every pulse, every flicker, every sustained glow carries meaning. The translator — that is you — learns to read these patterns the way you might learn to read tide charts or weather signals.
+    content: `In the world of MOTHTONGUE, bioluminescence is not just light. It is language. Every pulse, every flicker, every sustained glow carries meaning. The translator, that is you, learns to read these patterns the way you might learn to read tide charts or weather signals.
 
 The grammar is simple enough to learn in the demo but deep enough to sustain the full narrative. Pulse twice, pause, pulse once: that is a question. Sustained glow that brightens gradually: that is a warning. Rapid flicker that fades to nothing: that is grief.
 
@@ -49,7 +49,7 @@ We wanted the player to feel the湿度 of the forest, the cold of stone walls, t
 
 The ambient audio toggle is muted by default. We believe sound should be a choice, not an imposition. When you turn it on, the world deepens. When you turn it off, the visual language carries the atmosphere alone. Both experiences are complete.
 
-The hardest part was the silence. Finding the right amount of nothing between sounds. In nature, silence is never absolute — there is always the faint hiss of air, the distant hum of the earth. We preserved that. True silence would feel artificial. The silence in MOTHTONGUE breathes.`,
+The hardest part was the silence. Finding the right amount of nothing between sounds. In nature, silence is never absolute; there is always the faint hiss of air, the distant hum of the earth. We preserved that. True silence would feel artificial. The silence in MOTHTONGUE breathes.`,
     tags: ['sound', 'design'],
   },
   {
@@ -57,7 +57,7 @@ The hardest part was the silence. Finding the right amount of nothing between so
     title: 'Why We Publish Our Failures',
     date: '2026-05-20',
     excerpt: 'An honest account of what went wrong, and why that matters.',
-    content: `The first prototype of the lantern game was broken. The moth AI would spiral into corners, the glow mechanics flickered unpredictably, and the scoring system rewarded speed over observation. We shipped it anyway — to ourselves, in a private build — and watched players optimize the fun out of it.
+    content: `The first prototype of the lantern game was broken. The moth AI would spiral into corners, the glow mechanics flickered unpredictably, and the scoring system rewarded speed over observation. We shipped it anyway, to ourselves in a private build, and watched players optimize the fun out of it.
 
 That failure taught us something: the game should reward patience. Moths do not respond to urgency. They respond to stillness. We rebuilt the entire interaction model around this principle. Now, the slower you move, the more the moths reveal. The lantern dims if you rush. The hidden glyphs appear only when you wait.
 

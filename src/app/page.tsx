@@ -1,7 +1,5 @@
 import { Hero } from '@/components/Hero';
-import { SectionLabel } from '@/components/SectionLabel';
 import { RevealText } from '@/components/RevealText';
-import { WoodcutDraw } from '@/components/WoodcutDraw';
 import Link from 'next/link';
 import { creatures } from '@/content/bestiary';
 
@@ -19,7 +17,6 @@ export default function Home() {
       {/* Lore teaser */}
       <section className="section-spacing px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
-          <SectionLabel label="From the Archive" className="mb-8" />
           <RevealText>
             <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl lg:text-4xl leading-snug text-bone/90 drop-cap">
               Somewhere in the deep forest, an abandoned museum breathes in the dark. Its display cases hum. Its specimen labels shift. The moths pinned behind glass have begun to glow again, and they are speaking to anyone who will listen.
@@ -36,7 +33,6 @@ export default function Home() {
       {/* World grid */}
       <section className="section-spacing px-4 md:px-8 border-t border-bone/5">
         <div className="max-w-6xl mx-auto">
-          <SectionLabel label="The World Awaits" className="mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {worldHighlights.map((item, i) => (
               <Link
@@ -62,7 +58,6 @@ export default function Home() {
       {/* Character strip */}
       <section className="section-spacing px-4 md:px-8 border-t border-bone/5">
         <div className="max-w-6xl mx-auto">
-          <SectionLabel label="Specimens" className="mb-8" />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {creatures.map((c) => (
               <Link
@@ -95,7 +90,6 @@ export default function Home() {
       {/* Demo CTA */}
       <section className="section-spacing px-4 md:px-8 border-t border-bone/5">
         <div className="max-w-3xl mx-auto text-center">
-          <SectionLabel label="The Lantern Awaits" className="mb-6" />
           <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Guide the light. Read the glow.
           </h2>

@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Bestiary',
-  description: 'The nocturnal specimens of MOTHTONGUE — bioluminescent creatures catalogued by lantern light.',
+  description: 'The nocturnal specimens of MOTHTONGUE, bioluminescent creatures catalogued by lantern light.',
 };
 
 export default function BestiaryPage() {
