@@ -1,0 +1,39 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+<div class={`reveal ${className}`}>
+  <svg
+    viewBox="0 0 200 200"
+    class="w-full h-full"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="0.8"
+  >
+    <path d="M100 40 C85 40, 55 60, 50 90 C45 120, 60 150, 85 155 C92 156, 97 152, 100 145" class="draw-path" style="animation-delay: 0s" />
+    <path d="M100 40 C115 40, 145 60, 150 90 C155 120, 140 150, 115 155 C108 156, 103 152, 100 145" class="draw-path" style="animation-delay: 0.3s" />
+    <path d="M85 155 C75 140, 60 110, 55 85" class="draw-path" style="animation-delay: 0.8s" />
+    <path d="M90 150 C82 130, 70 105, 65 80" class="draw-path" style="animation-delay: 1s" />
+    <path d="M115 155 C125 140, 140 110, 145 85" class="draw-path" style="animation-delay: 0.8s" />
+    <path d="M110 150 C118 130, 130 105, 135 80" class="draw-path" style="animation-delay: 1s" />
+    <path d="M95 42 C85 25, 70 15, 60 20" class="draw-path" style="animation-delay: 1.5s" />
+    <path d="M105 42 C115 25, 130 15, 140 20" class="draw-path" style="animation-delay: 1.5s" />
+    <ellipse cx="100" cy="95" rx="4" ry="15" class="draw-path" style="animation-delay: 0.5s" />
+    <circle cx="100" cy="78" r="3" class="draw-path" style="animation-delay: 0.6s" />
+  </svg>
+</div>
+
+<style>
+  .draw-path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+  }
+  :global(.revealed) .draw-path {
+    animation: draw 2s ease forwards;
+  }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+</style>

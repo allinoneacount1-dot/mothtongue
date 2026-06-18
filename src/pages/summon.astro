@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import RevealText from '../components/RevealText.astro';
+---
+<Layout title="Summon" description="Join the MOTHTONGUE archive. Leave your mark.">
+  <Nav slot="nav" />
+
+  <main class="min-h-screen pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <SectionLabel label="Join the Archive" class="mb-4" />
+      <RevealText>
+        <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+          Summon
+        </h1>
+      </RevealText>
+
+      <p class="font-[family-name:var(--font-mono)] text-xs text-bone/40 mb-12 max-w-lg leading-relaxed">
+        The moths remember everyone who enters the archive. Leave your mark. Join the waitlist for the full MOTHTONGUE experience.
+      </p>
+
+      <!-- Success state (hidden by default) -->
+      <div id="form-success" class="hidden border border-moth/20 p-8 text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-moth/10 flex items-center justify-center">
+          <span class="font-[family-name:var(--font-display)] text-moth text-xl">✦</span>
+        </div>
+        <p id="success-message" class="font-[family-name:var(--font-display)] text-lg text-bone mb-2"></p>
+        <p class="font-[family-name:var(--font-mono)] text-[10px] text-bone/30">
+          The moths will find you when the time comes.
+        </p>
+        <button
+          id="submit-another"
+          class="mt-6 font-[family-name:var(--font-mono)] text-[10px] text-bone/30 hover:text-moth transition-colors focus-moth tracking-wider uppercase"
+        >Submit Another</button>
+      </div>
+
+      <!-- Form -->
+      <form id="wishlist-form" class="space-y-6">
+        <div>
+          <label for="alias" class="font-[family-name:var(--font-mono)] text-[10px] text-bone/30 tracking-wider uppercase block mb-2">
+            Translator Alias
+          </label>
+          <input
+            id="alias"
+            type="text"
+            placeholder="What should the moths call you?"
+            class="w-full bg-transparent border border-bone/10 px-4 py-3 font-[family-name:var(--font-mono)] text-xs text-bone placeholder:text-bone/20 focus:outline-none focus:border-moth/30 transition-colors"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="email" class="font-[family-name:var(--font-mono)] text-[10px] text-bone/30 tracking-wider uppercase block mb-2">
+            Signal Frequency
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="your@signal.frequency"
+            class="w-full bg-transparent border border-bone/10 px-4 py-3 font-[family-name:var(--font-mono)] text-xs text-bone placeholder:text-bone/20 focus:outline-none focus:border-moth/30 transition-colors"
+            required
+          />
+        </div>
+
+        <p id="form-error" class="font-[family-name:var(--font-mono)] text-[10px] text-rust/80 hidden"></p>
+
+        <button
+          type="submit"
+          id="submit-btn"
+          class="inline-block px-8 py-3 bg-moth text-moss font-[family-name:var(--font-mono)] text-xs tracking-[0.15em] uppercase transition-all focus-moth font-medium hover:bg-moth-dim"
+        >
+          Join the Archive
+        </button>
+
+        <p class="font-[family-name:var(--font-mono)] text-[9px] text-bone/15 tracking-wider">
+          Your signal is encrypted and stored in the archive. The moths do not share.
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  const form = document.getElementById('wishlist-form') as HTMLFormElement;
+  const successDiv = document.getElementById('form-success')!;
+  const successMsg = document.getElementById('success-message')!;
+  const errorP = document.getElementById('form-error')!;
+  const submitBtn = document.getElementById('submit-btn')!;
+  const submitAnother = document.getElementById('submit-another')!;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.textContent = 'Recording...';
+    (submitBtn as HTMLButtonElement).disabled = true;
+    errorP.classList.add('hidden');
+
+    const alias = (document.getElementById('alias') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+
+    try {
+      const res = await fetch('/api/wishlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, alias }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        successMsg.textContent = data.message || 'The moths have recorded your name.';
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+      } else {
+        errorP.textContent = data.error || 'Something went wrong.';
+        errorP.classList.remove('hidden');
+      }
+    } catch {
+      errorP.textContent = 'The archive could not be reached.';
+      errorP.classList.remove('hidden');
+    }
+
+    submitBtn.textContent = 'Join the Archive';
+    (submitBtn as HTMLButtonElement).disabled = false;
+  });
+
+  submitAnother.addEventListener('click', () => {
+    form.reset();
+    form.classList.remove('hidden');
+    successDiv.classList.add('hidden');
+  });
+</script>

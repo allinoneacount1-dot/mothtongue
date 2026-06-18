@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+import RevealText from '../../components/RevealText.astro';
+import { chroniclePosts as posts } from '../../data/chronicle';
+
+export function getStaticPaths() {
+  return posts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = posts.find((p) => p.slug === slug);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+---
+<Layout title={post.title} description={post.excerpt}>
+  <Nav slot="nav" />
+
+  <main class="min-h-screen pt-28 pb-20 px-4 md:px-8">
+    <article class="max-w-3xl mx-auto">
+      <a href="/chronicle" class="font-[family-name:var(--font-mono)] text-[10px] text-bone/30 hover:text-moth transition-colors focus-moth tracking-wider uppercase mb-8 inline-block">
+        &larr; Back to Chronicle
+      </a>
+
+      <SectionLabel label={`${post.tags[0]} · ${post.date}`} class="mb-4" />
+
+      <RevealText>
+        <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold mb-12 leading-tight">
+          {post.title}
+        </h1>
+      </RevealText>
+
+      <div class="border-t border-bone/10 pt-8">
+        {post.content.split('\n\n').map((paragraph) => (
+          <p class="font-[family-name:var(--font-mono)] text-xs text-bone/50 leading-[1.8] mb-6">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-bone/10 text-center">
+        <p class="font-[family-name:var(--font-mono)] text-[9px] text-bone/20 tracking-widest uppercase">
+          End of Entry
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer slot="footer" />
+</Layout>

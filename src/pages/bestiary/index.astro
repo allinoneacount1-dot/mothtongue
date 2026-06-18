@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+import RevealText from '../../components/RevealText.astro';
+import { creatures } from '../../data/bestiary';
+---
+<Layout title="Bestiary" description="The nocturnal specimens of MOTHTONGUE, bioluminescent creatures catalogued by lantern light.">
+  <Nav slot="nav" />
+
+  <main class="min-h-screen pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-6xl mx-auto">
+      <SectionLabel label="Specimen Archive" class="mb-4" />
+      <RevealText>
+        <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+          The Bestiary
+        </h1>
+      </RevealText>
+
+      <p class="font-[family-name:var(--font-mono)] text-xs text-bone/40 mb-16 max-w-2xl leading-relaxed">
+        Each specimen was collected from the deep forest and pinned in the museum's display cases. They glow in the dark. They speak if you listen. Hover to reveal their field notes.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {creatures.map((creature, i) => (
+          <RevealText delay={i * 0.05}>
+            <a
+              href={`/bestiary/${creature.slug}`}
+              class="group block border border-bone/10 p-8 hover:border-bone/20 transition-all duration-500 relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                style={`background: radial-gradient(circle at top right, ${creature.glowColor}15, transparent 70%)`}
+              />
+              <p class="font-[family-name:var(--font-mono)] text-[9px] text-bone/25 tracking-[0.2em] mb-3">
+                {creature.classification}
+              </p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl font-bold mb-3 text-bone group-hover:text-moth transition-colors">
+                {creature.name}
+              </h3>
+              <p class="font-[family-name:var(--font-mono)] text-[10px] text-bone/30 mb-4">
+                {creature.habitat}
+              </p>
+              <p class="font-[family-name:var(--font-mono)] text-[11px] text-bone/50 leading-relaxed line-clamp-3">
+                {creature.description}
+              </p>
+              <div class="mt-6 flex items-center gap-2">
+                <div
+                  class="w-2 h-2 rounded-full"
+                  style={`background-color: ${creature.glowColor}; box-shadow: 0 0 8px ${creature.glowColor}60`}
+                />
+                <span class="font-[family-name:var(--font-mono)] text-[9px] text-bone/20 tracking-wider uppercase">
+                  View Specimen
+                </span>
+              </div>
+            </a>
+          </RevealText>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+</Layout>
